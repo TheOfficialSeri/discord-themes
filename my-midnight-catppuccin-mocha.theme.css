@@ -69,7 +69,7 @@ body {
     --transparency-tweaks: on; /* off: no changes, on: remove some elements for better transparency */
     --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
     --panel-blur: on; /* off: no changes, on: blur the background of panels */
-    --blur-amount: 24px; /* amount of blur */
+    --blur-amount: 12px; /* amount of blur */
     --bg-floating: var(
         --bg-3
     ); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
@@ -203,13 +203,13 @@ body {
     --gold-5: hsl(54, 100%, 43%);
 }
 
-@property --user-panel-nameplate {
+@property --call-container-gradient {
     syntax: "off | on";
     inherits: false;
     initial-value: on;
 }
 
-@property --call-container-gradient {
+@property --user-panel-nameplate {
     syntax: "off | on";
     inherits: false;
     initial-value: on;
@@ -227,6 +227,11 @@ body {
 
 @container body style(--panel-blur: on) {
     .visual-refresh {
+        .popout_a16aea,
+        .gameSearchCombobox__36be8,
+        .container__8a031,
+        .modal_e44912,
+        .tooltip__4e35b,
         .popoverReactionHoverBar_f84418,
         .tooltip_c36707,
         .contentWrapper__08434,
@@ -268,11 +273,17 @@ body {
         }
 
         .tooltipPointer_c36707:nth-child(2) {
-            border-width: 4px;
-            margin-inline-start: -4px;
             bottom: calc(100% + 1.5px);
-            border-top-color: var(--bg-floating);
             opacity: calc(100 / var(--transparency-decimal));
+            margin-inline-start: -4px;
+            border-width: 4px;
+            border-top-color: var(--bg-floating);
+        }
+
+        .caret__5bc6a {
+            --custom-caret-border-overlap: 4px;
+            opacity: calc(100 / var(--transparency-decimal));
+            border-top-color: var(--bg-floating);
         }
     }
 }
@@ -281,10 +292,31 @@ body {
     .container__4bbc6 {
         display: none;
     }
+
+    :is(.plated__37e49, .plated__67645):hover {
+        backdrop-filter: none;
+        background-color: var(--background-mod-subtle) !important;
+    }
 }
 
 @container root style(--colors: on) {
     @supports (color: color-mix(in lch, red, blue)) {
+        .theme-light:has(.gameSearchCombobox__36be8) {
+            --input-text-default: color-mix(
+                in oklab,
+                var(--neutral-5) 100%,
+                var(--custom-theme-text-color, #000)
+                    var(--custom-theme-text-color-amount, 0%)
+            );
+
+            --text-strong: color-mix(
+                in oklab,
+                var(--neutral-8) 100%,
+                var(--custom-theme-text-color, #000)
+                    var(--custom-theme-text-color-amount, 0%)
+            );
+        }
+
         .theme-darker .menu_c1e9c4 {
             --text-strong: color-mix(
                 in oklab,
@@ -295,20 +327,26 @@ body {
         }
     }
 
+    :root .custom-user-profile-theme.theme-light {
+        --control-primary-background-default: var(--purple-5);
+        --control-primary-background-hover: var(--purple-3);
+        --control-primary-background-active: var(--purple-1);
+    }
+
     * {
         --white: black;
     }
 
     .theme-darker {
+        --control-critical-primary-text-default: white;
+        --control-critical-primary-text-hover: white;
+        --control-critical-primary-text-active: white;
         --control-primary-background-default: var(--purple-5);
         --control-primary-background-hover: var(--purple-3);
         --control-primary-background-active: var(--purple-1);
         --control-primary-text-default: black;
         --control-primary-text-hover: black;
         --control-primary-text-active: black;
-        --control-critical-primary-text-default: white;
-        --control-critical-primary-text-hover: white;
-        --control-critical-primary-text-active: white;
     }
 
     .visual-refresh body,
@@ -320,21 +358,21 @@ body {
         --text-muted: #666b80;
     }
 
-    .tabBar__133bf .addFriend__133bf {
-        border-color: var(--control-primary-border-default);
+    .tabBar__133bf
+        .addFriend__133bf.addFriend__133bf.addFriend__133bf.addFriend__133bf {
         background-color: var(--control-primary-background-default);
         color: var(--control-primary-text-default);
 
-        :hover {
-            border-color: var(--control-primary-border-hover);
+        &:hover {
             background-color: var(--control-primary-background-hover);
-            color: var(--control-primary-text-hover);
         }
 
-        :active {
-            border-color: var(--control-primary-border-active);
+        &:active {
             background-color: var(--control-primary-background-active);
-            color: var(--control-primary-text-active);
+        }
+
+        &[aria-selected="true"] {
+            background-color: var(--control-primary-background-active);
         }
     }
 }
