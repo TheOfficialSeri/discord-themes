@@ -227,6 +227,7 @@ body {
 
 @container body style(--panel-blur: on) {
     .visual-refresh {
+        .backdrop__8a7fc,
         .popout_a16aea,
         .gameSearchCombobox__36be8,
         .container__8a031,
@@ -242,7 +243,7 @@ body {
         .messagesPopoutWrap_e8b59c,
         .popout__76f04,
         .bar__7aaec {
-            backdrop-filter: blur(var(--blur-amount));
+            backdrop-filter: var(--panel-backdrop-filter);
         }
 
         .menu_c1e9c4 {
@@ -255,8 +256,7 @@ body {
             top: anchor(--submenu-anchor top);
             left: anchor(--submenu-anchor left);
             z-index: -1;
-            backdrop-filter: blur(var(--blur-amount));
-            backdrop-filter: blur(var(--blur-amount));
+            backdrop-filter: var(--panel-backdrop-filter);
             border-radius: 8px;
             background: transparent;
             width: 100%;
@@ -271,20 +271,28 @@ body {
         .submenuPaddingContainer_ce8328 > .menu_c1e9c4::before {
             width: calc(100% - 24px);
         }
+    }
+}
 
-        .tooltipPointer_c36707:nth-child(2) {
-            bottom: calc(100% + 1.5px);
-            opacity: calc(100 / var(--transparency-decimal));
-            margin-inline-start: -4px;
-            border-width: 4px;
-            border-top-color: var(--bg-floating);
-        }
+@container body style(--transparency-tweaks: on) {
+    .tooltipPointer_c36707:nth-child(2) {
+        bottom: calc(100% + 1.5px);
+        opacity: calc(100 / var(--transparency-decimal));
+        margin-inline-start: -4px;
+        border-width: 4px;
+        border-top-color: var(--bg-floating);
+    }
 
-        .caret__5bc6a {
-            --custom-caret-border-overlap: 4px;
-            opacity: calc(100 / var(--transparency-decimal));
-            border-top-color: var(--bg-floating);
-        }
+    .caret__5bc6a {
+        --custom-caret-border-overlap: 4px;
+        opacity: calc(100 / var(--transparency-decimal));
+        border-top-color: var(--bg-floating);
+    }
+
+    .titleContainer_e29cd7,
+    .header_c6bf1b,
+    :where(.outer_c0bea0).user-profile-modal-v2 {
+        background: none;
     }
 }
 
@@ -375,16 +383,15 @@ body {
             background-color: var(--control-primary-background-active);
         }
     }
+
+    .bannerButton_de8008 {
+        color: var(--interactive-icon-default);
+    }
 }
 
 /* hide horizontal ruler above chats (specifically threads) */
 .chat_ee72fa::before {
     display: none !important;
-}
-
-/* dm banner button icon color */
-.bannerButton_de8008 {
-    color: var(--interactive-icon-default);
 }
 
 /* fix button sizes in call container, copied from `trailing_` buttons */
