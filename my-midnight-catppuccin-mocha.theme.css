@@ -291,6 +291,7 @@ body {
 
     .titleContainer_e29cd7,
     .header_c6bf1b,
+    .scroller__53543,
     :where(.outer_c0bea0).user-profile-modal-v2 {
         background: none;
     }
