@@ -390,6 +390,11 @@ body {
     }
 }
 
+/* fix shop header */
+.headerBar__80679 {
+  margin-bottom: 0 !important;
+}
+
 /* hide horizontal ruler above chats (specifically threads) */
 .chat_ee72fa::before {
     display: none !important;
