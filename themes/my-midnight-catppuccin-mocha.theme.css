@@ -216,10 +216,10 @@ body {
 }
 
 @container body style(--call-container-gradient: off) {
-    .callContainer_cb9592 .root_bfe55a {
+    .cb9592ad77576717-callContainer .bfe55a0aaaf62375-root {
         background: none;
 
-        .pulseGradient__11664 {
+        ._116642f293ef6ec6-pulseGradient {
             display: none;
         }
     }
@@ -227,30 +227,30 @@ body {
 
 @container body style(--panel-blur: on) {
     .visual-refresh {
-        .backdrop__8a7fc,
-        .popout_a16aea,
-        .gameSearchCombobox__36be8,
-        .container__8a031,
-        .modal_e44912,
-        .tooltip__4e35b,
+        ._8a7fc664acf53af6-backdrop,
+        .a16aea1526925c2c-popout,
+        ._36be84b4087a5355-gameSearchCombobox,
+        ._8a031a135bfcb9ba-container,
+        .e4491282b6a5364a-modal,
+        ._4e35b986167c457d-tooltip,
         .popoverReactionHoverBar_f84418,
-        .tooltip_c36707,
-        .contentWrapper__08434,
-        .root__49fc1,
-        .outer_c0bea0.user-profile-popout:not(.custom-theme-background),
-        .autocomplete__6b0e0,
-        .container__55c99,
-        .messagesPopoutWrap_e8b59c,
-        .popout__76f04,
-        .bar__7aaec {
+        .c36707910f687430-tooltip,
+        ._084343c4f11eaaab-contentWrapper,
+        ._49fc18ba07c5025f-root,
+        .c0bea05627c5dc35-outer.user-profile-popout:not(.custom-theme-background),
+        ._6b0e07cbaf13ec4e-autocomplete,
+        ._55c999adcf6db265-container,
+        .e8b59c4b335dd2fc-messagesPopoutWrap,
+        ._76f047ded9fef6d4-popout,
+        ._7aaec78b97ff00f7-bar {
             backdrop-filter: var(--panel-backdrop-filter);
         }
 
-        .menu_c1e9c4 {
+        .c1e9c47c23f12ca3-menu {
             anchor-name: --submenu-anchor;
         }
 
-        .menu_c1e9c4::before {
+        .c1e9c47c23f12ca3-menu::before {
             position: absolute;
             position-anchor: --submenu-anchor;
             top: anchor(--submenu-anchor top);
@@ -264,18 +264,18 @@ body {
             content: " ";
         }
 
-        .submenuPaddingContainer_c1e9c4 > .menu_c1e9c4::before {
+        .c1e9c47c23f12ca3-submenuPaddingContainer > .c1e9c47c23f12ca3-menu::before {
             width: calc(100% - 16px);
         }
 
-        .submenuPaddingContainer_ce8328 > .menu_c1e9c4::before {
+        .ce832809562bf737-submenuPaddingContainer > .c1e9c47c23f12ca3-menu::before {
             width: calc(100% - 24px);
         }
     }
 }
 
 @container body style(--transparency-tweaks: on) {
-    .tooltipPointer_c36707:nth-child(2) {
+    .c36707910f687430-tooltipPointer:nth-child(2) {
         bottom: calc(100% + 1.5px);
         opacity: calc(100 / var(--transparency-decimal));
         margin-inline-start: -4px;
@@ -283,26 +283,26 @@ body {
         border-top-color: var(--bg-floating);
     }
 
-    .caret__5bc6a {
+    ._5bc6a0adc149eda0-caret {
         --custom-caret-border-overlap: 4px;
         opacity: calc(100 / var(--transparency-decimal));
         border-top-color: var(--bg-floating);
     }
 
-    .titleContainer_e29cd7,
-    .header_c6bf1b,
-    .scroller__53543,
-    :where(.outer_c0bea0).user-profile-modal-v2 {
+    .e29cd7b93c4f1266-titleContainer,
+    .c6bf1b7af480dfda-header,
+    ._535437b3d3b11fd1-scroller,
+    :where(.c0bea05627c5dc35-outer).user-profile-modal-v2 {
         background: none;
     }
 }
 
 @container body style(--user-panel-nameplate: off) {
-    .container__4bbc6 {
+    ._4bbc6dc06e75ad52-container {
         display: none;
     }
 
-    :is(.plated__37e49, .plated__67645):hover {
+    :is(._37e49614b9f110a9-plated, ._67645e1530f1195d-plated):hover {
         backdrop-filter: none;
         background-color: var(--background-mod-subtle) !important;
     }
@@ -310,7 +310,7 @@ body {
 
 @container root style(--colors: on) {
     @supports (color: color-mix(in lch, red, blue)) {
-        .theme-light:has(.gameSearchCombobox__36be8) {
+        .theme-light:has(._36be84b4087a5355-gameSearchCombobox) {
             --input-text-default: color-mix(
                 in oklab,
                 var(--neutral-5) 100%,
@@ -326,7 +326,7 @@ body {
             );
         }
 
-        .theme-darker .menu_c1e9c4 {
+        .theme-darker .c1e9c47c23f12ca3-menu {
             --text-strong: color-mix(
                 in oklab,
                 var(--neutral-8) 100%,
@@ -367,8 +367,8 @@ body {
         --text-muted: #666b80;
     }
 
-    .tabBar__133bf
-        .addFriend__133bf.addFriend__133bf.addFriend__133bf.addFriend__133bf {
+    ._133bf5eea8e33a34-tabBar
+        ._133bf5eea8e33a34-addFriend._133bf5eea8e33a34-addFriend._133bf5eea8e33a34-addFriend._133bf5eea8e33a34-addFriend {
         background-color: var(--control-primary-background-default);
         color: var(--control-primary-text-default);
 
@@ -385,23 +385,23 @@ body {
         }
     }
 
-    .bannerButton_de8008 {
+    .de800837163648e8-bannerButton {
         color: var(--interactive-icon-default);
     }
 }
 
 /* fix shop header */
-.headerBar__80679 {
+._8067953d83f4b8a8-headerBar {
   margin-bottom: 0 !important;
 }
 
 /* hide horizontal ruler above chats (specifically threads) */
-.chat_ee72fa::before {
+.a44415a3320e67de-chat::before {
     display: none !important;
 }
 
 /* fix button sizes in call container, copied from `trailing_` buttons */
-.callContainer_cb9592 .toolbar__9293f > div {
+.cb9592ad77576717-callContainer ._9293f6b2fc12398a-toolbar > div {
     display: flex;
     justify-content: center;
     width: var(--space-32);
@@ -409,19 +409,19 @@ body {
 
 /* fix title bar buttons right padding */
 @container body style(--top-bar-button-position: titlebar) {
-    .base__5e434:has(.winButtons_c38106) {
+    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-winButtons) {
         --top-bar-right-margin: calc(
             32px + 3 * var(--space-xs) + 6 * var(--window-control-size)
         );
     }
-    .base__5e434:has(.trailing_c38106 > .button__85643) {
+    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-trailing > ._85643a485899904b-button) {
         --button-count: 5;
         --top-bar-right-margin: calc(
             32px * var(--button-count) + var(--button-count) * var(--space-xs)
         );
     }
-    .base__5e434:has(.winButtons_c38106):has(
-            .trailing_c38106 > .button__85643
+    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-winButtons):has(
+            .c38106a3f0c3ca76-trailing > ._85643a485899904b-button
         ) {
         --top-bar-right-margin: calc(
             32px * var(--button-count) + (var(--button-count) + 2) *
@@ -430,8 +430,8 @@ body {
     }
 
     /* nitro and quests page */
-    .navBarContent__88ef1,
-    .headerBarContent__1a9ce {
+    ._88ef12dca13ecf84-navBarContent,
+    ._1a9cebfbd0c9d0f6-headerBarContent {
         padding-right: var(--top-bar-right-margin);
     }
 }
