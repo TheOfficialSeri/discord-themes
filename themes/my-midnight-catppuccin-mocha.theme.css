@@ -98,8 +98,8 @@ body {
     --text-5: #585b70; /* muted channels/chats and timestamps */
 
     /* background and dark colors */
-    --bg-1: #402d86c0; /* dark buttons when clicked */
-    --bg-2: #301856c0; /* dark buttons */
+    --bg-1: #30264ac0; /* dark buttons when clicked */
+    --bg-2: #201834c0; /* dark buttons */
     --bg-3: #140e28c0; /* spacing, secondary elements */
     --bg-4: #1a102cc0; /* main background color */
     --hover: hsla(235, 15%, 53%, 0.1); /* channels and buttons when hovered */
@@ -227,6 +227,7 @@ body {
 
 @container body style(--panel-blur: on) {
     .visual-refresh {
+        ._8946359d8adb1488-contentContainer,
         ._8a7fc664acf53af6-backdrop,
         .a16aea1526925c2c-popout,
         ._36be84b4087a5355-gameSearchCombobox,
@@ -388,11 +389,6 @@ body {
     .de800837163648e8-bannerButton {
         color: var(--interactive-icon-default);
     }
-}
-
-/* fix shop header */
-._8067953d83f4b8a8-headerBar {
-  margin-bottom: 0 !important;
 }
 
 /* hide horizontal ruler above chats (specifically threads) */
