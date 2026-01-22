@@ -229,6 +229,7 @@ body {
 
 @container body style(--panel-blur: on) {
     .visual-refresh {
+        ._16eb0bfd5c5a90d1-container,
         ._5fa2fb5c4d963128-selectDropdown,
         ._8946359d8adb1488-contentContainer,
         ._8a7fc664acf53af6-backdrop,
