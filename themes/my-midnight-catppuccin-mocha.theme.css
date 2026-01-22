@@ -83,6 +83,8 @@ body {
     --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
     --user-panel-nameplate: off; /* off: remove nameplate from user panel, on: no changes */
     --call-container-gradient: off; /* off: remove gradient background, on: no changes */
+
+    --top-bar-button-count: 4;
 }
 
 /* color options */
@@ -90,7 +92,7 @@ body {
     --colors: on; /* off: discord default colors, on: midnight custom colors */
 
     /* text colors */
-    --text-0: var(--bg-3); /* text on colored elements */
+    --text-0: #140e28; /* text on colored elements */
     --text-1: hsl(226, 64%, 95%); /* other normally white text */
     --text-2: #cdd6f4; /* headings and important text */
     --text-3: #bac2de; /* normal text */
@@ -227,6 +229,7 @@ body {
 
 @container body style(--panel-blur: on) {
     .visual-refresh {
+        ._5fa2fb5c4d963128-selectDropdown,
         ._8946359d8adb1488-contentContainer,
         ._8a7fc664acf53af6-backdrop,
         .a16aea1526925c2c-popout,
@@ -238,7 +241,9 @@ body {
         .c36707910f687430-tooltip,
         ._084343c4f11eaaab-contentWrapper,
         ._49fc18ba07c5025f-root,
-        .c0bea05627c5dc35-outer.user-profile-popout:not(.custom-theme-background),
+        .c0bea05627c5dc35-outer.user-profile-popout:not(
+                .custom-theme-background
+            ),
         ._6b0e07cbaf13ec4e-autocomplete,
         ._55c999adcf6db265-container,
         .e8b59c4b335dd2fc-messagesPopoutWrap,
@@ -246,55 +251,24 @@ body {
         ._7aaec78b97ff00f7-bar {
             backdrop-filter: var(--panel-backdrop-filter);
         }
-
-        .c1e9c47c23f12ca3-menu {
-            anchor-name: --submenu-anchor;
-        }
-
-        .c1e9c47c23f12ca3-menu::before {
-            position: absolute;
-            position-anchor: --submenu-anchor;
-            top: anchor(--submenu-anchor top);
-            left: anchor(--submenu-anchor left);
-            z-index: -1;
-            backdrop-filter: var(--panel-backdrop-filter);
-            border-radius: 8px;
-            background: transparent;
-            width: 100%;
-            height: 100%;
-            content: " ";
-        }
-
-        .c1e9c47c23f12ca3-submenuPaddingContainer > .c1e9c47c23f12ca3-menu::before {
-            width: calc(100% - 16px);
-        }
-
-        .ce832809562bf737-submenuPaddingContainer > .c1e9c47c23f12ca3-menu::before {
-            width: calc(100% - 24px);
-        }
-    }
-}
-
-@container body style(--transparency-tweaks: on) {
-    .c36707910f687430-tooltipPointer:nth-child(2) {
-        bottom: calc(100% + 1.5px);
-        opacity: calc(100 / var(--transparency-decimal));
-        margin-inline-start: -4px;
-        border-width: 4px;
-        border-top-color: var(--bg-floating);
     }
 
-    ._5bc6a0adc149eda0-caret {
-        --custom-caret-border-overlap: 4px;
-        opacity: calc(100 / var(--transparency-decimal));
-        border-top-color: var(--bg-floating);
+    .c1e9c47c23f12ca3-menu::before {
+        position: absolute;
+        backdrop-filter: var(--panel-backdrop-filter);
+        border-radius: 8px;
+        background: transparent;
+        width: 100%;
+        height: 100%;
+        content: " ";
     }
 
-    .e29cd7b93c4f1266-titleContainer,
-    .c6bf1b7af480dfda-header,
-    ._535437b3d3b11fd1-scroller,
-    :where(.c0bea05627c5dc35-outer).user-profile-modal-v2 {
-        background: none;
+    .c1e9c47c23f12ca3-submenuPaddingContainer > .c1e9c47c23f12ca3-menu::before {
+        width: calc(100% - 16px);
+    }
+
+    .ce832809562bf737-submenuPaddingContainer > .c1e9c47c23f12ca3-menu::before {
+        width: calc(100% - 24px);
     }
 }
 
@@ -309,125 +283,42 @@ body {
     }
 }
 
-@container root style(--colors: on) {
-    @supports (color: color-mix(in lch, red, blue)) {
-        .theme-light:has(._36be84b4087a5355-gameSearchCombobox) {
-            --input-text-default: color-mix(
-                in oklab,
-                var(--neutral-5) 100%,
-                var(--custom-theme-text-color, #000)
-                    var(--custom-theme-text-color-amount, 0%)
-            );
-
-            --text-strong: color-mix(
-                in oklab,
-                var(--neutral-8) 100%,
-                var(--custom-theme-text-color, #000)
-                    var(--custom-theme-text-color-amount, 0%)
-            );
-        }
-
-        .theme-darker .c1e9c47c23f12ca3-menu {
-            --text-strong: color-mix(
-                in oklab,
-                var(--neutral-8) 100%,
-                var(--custom-theme-text-color, #000)
-                    var(--custom-theme-text-color-amount, 0%)
-            );
-        }
+/* fix title bar buttons right padding */
+@container body style(--top-bar-button-position: titlebar) {
+    ._5e434347c823b592-base
+        .f75fb00fb7356cbe-chat.f75fb00fb7356cbe-threadSidebarOpen {
+        --top-bar-right-margin: 0;
     }
-
-    :root .custom-user-profile-theme.theme-light {
-        --control-primary-background-default: var(--purple-5);
-        --control-primary-background-hover: var(--purple-3);
-        --control-primary-background-active: var(--purple-1);
+    ._5e434347c823b592-base:has(
+        .c38106a3f0c3ca76-trailing > ._85643a485899904b-button:nth-of-type(3)
+    ) {
+        --top-bar-right-margin: calc(32px * 3 + 3 * var(--space-xs));
     }
-
-    * {
-        --white: black;
+    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-winButtons) {
+        --top-bar-right-margin: calc(
+            32px * var(--top-bar-button-count) +
+                (4 + var(--top-bar-button-count)) * var(--space-xs) + 6 *
+                var(--window-control-size) + 1px
+        );
     }
-
-    .theme-darker {
-        --control-critical-primary-text-default: white;
-        --control-critical-primary-text-hover: white;
-        --control-critical-primary-text-active: white;
-        --control-primary-background-default: var(--purple-5);
-        --control-primary-background-hover: var(--purple-3);
-        --control-primary-background-active: var(--purple-1);
-        --control-primary-text-default: black;
-        --control-primary-text-hover: black;
-        --control-primary-text-active: black;
-    }
-
-    .visual-refresh body,
-    .visual-refresh .theme-dark:not(.custom-user-profile-theme),
-    .visual-refresh .theme-light:not(.custom-user-profile-theme) {
-        --icon-muted: #686b80;
-        --icon-subtle: var(--interactive-text-hover);
-        --status-positive-text: black;
-        --text-muted: #666b80;
-    }
-
-    ._133bf5eea8e33a34-tabBar
-        ._133bf5eea8e33a34-addFriend._133bf5eea8e33a34-addFriend._133bf5eea8e33a34-addFriend._133bf5eea8e33a34-addFriend {
-        background-color: var(--control-primary-background-default);
-        color: var(--control-primary-text-default);
-
-        &:hover {
-            background-color: var(--control-primary-background-hover);
-        }
-
-        &:active {
-            background-color: var(--control-primary-background-active);
-        }
-
-        &[aria-selected="true"] {
-            background-color: var(--control-primary-background-active);
-        }
-    }
-
-    .fb7f9476ada049c8-bannerButton {
-        color: var(--interactive-icon-default);
+    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-winButtons):has(
+            .c38106a3f0c3ca76-trailing
+                > ._85643a485899904b-button:nth-of-type(3)
+        ) {
+        --top-bar-right-margin: calc(
+            32px * (1 + var(--top-bar-button-count)) +
+                (5 + var(--top-bar-button-count)) * var(--space-xs) + 6 *
+                var(--window-control-size) + 1px
+        );
     }
 }
 
 /* hide horizontal ruler above chats (specifically threads) */
-.a44415a3320e67de-chat::before {
+.ee72fabfa6dc01df-chat::before {
     display: none !important;
 }
 
-/* fix button sizes in call container, copied from `trailing_` buttons */
-.cb9592ad77576717-callContainer ._9293f6b2fc12398a-toolbar > div {
-    display: flex;
-    justify-content: center;
+/* fix chat button size in call container */
+._233f8e0899e46d2b-chatIcon {
     width: var(--space-32);
-}
-
-/* fix title bar buttons right padding */
-@container body style(--top-bar-button-position: titlebar) {
-    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-winButtons) {
-        --top-bar-right-margin: calc(
-            32px + 3 * var(--space-xs) + 6 * var(--window-control-size)
-        );
-    }
-    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-trailing > ._85643a485899904b-button) {
-        --button-count: 5;
-        --top-bar-right-margin: calc(
-            32px * var(--button-count) + var(--button-count) * var(--space-xs)
-        );
-    }
-    ._5e434347c823b592-base:has(.c38106a3f0c3ca76-winButtons):has(
-            .c38106a3f0c3ca76-trailing > ._85643a485899904b-button
-        ) {
-        --top-bar-right-margin: calc(
-            32px * var(--button-count) + (var(--button-count) + 2) *
-                var(--space-xs) + 6 * var(--window-control-size)
-        );
-    }
-
-    /* nitro and quests page */
-    ._88ef12dca13ecf84-navBarContent,
-    ._1a9cebfbd0c9d0f6-headerBarContent {
-        padding-right: var(--top-bar-right-margin);
-    }
 }
